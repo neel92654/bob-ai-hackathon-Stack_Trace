@@ -491,6 +491,21 @@ export function WhatIfSimulator({ preselectedSupplier = null, preselectedTool = 
                   {simulationResult.mitigation_recommendation?.detail || 'Engage alternate spot supplier immediately and reroute affected high-priority wafer lots to secondary fab chambers.'}
                 </p>
               </div>
+
+              {/* Supporting Response Directives */}
+              {simulationResult.recommended_actions && simulationResult.recommended_actions.length > 0 && (
+                <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+                    Action Directives:
+                  </div>
+                  {simulationResult.recommended_actions.map((act, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
+                      <CheckCircle2 size={14} color="var(--primary-brand)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <span><strong>{act.action}</strong> — <span style={{ color: 'var(--text-muted)' }}>{act.expected_benefit || act.reason}</span></span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
