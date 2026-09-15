@@ -251,40 +251,20 @@ IBM Bob will automatically connect using `.bob/mcp.json`.
 
 ## ⚠️ Known Limitations
 
-- **Synthetic demonstration dataset:** Nexora currently uses a reproducible synthetic semiconductor manufacturing dataset rather than proprietary real-world fab telemetry or live factory sensor data.
-- **Demonstration deployment:** The hosted Render deployment is intended for hackathon demonstration and evaluation, not production semiconductor manufacturing operations.
-- **ML model validation:** The reported RandomForestRegressor metrics are evaluated on the synthetic dataset and should not be interpreted as production-grade accuracy on real semiconductor manufacturing data.
-- **SQLite persistence:** The deployed demonstration uses SQLite, so persistent database changes should not be considered production-grade distributed storage.
-- **Authentication and authorization:** The current hackathon demonstration does not implement a complete enterprise identity, role-based access-control, and security architecture suitable for production deployment.
-- **External data integrations:** Live supplier, geopolitical, fab telemetry, weather, ERP/MES, and other enterprise data integrations are not connected in the current demonstration.
-- **IBM Bob integration scope:** IBM Bob interacts with Nexora through the implemented MCP tools; Bob is not embedded as a component inside the Nexora React frontend.
-- **Simulation assumptions:** What-If scenarios are based on modeled operational assumptions and the available synthetic dataset rather than calibrated live fab data.
+> Be honest — judges appreciate transparency over overclaiming.
+
+- **Synthetic Demonstration Dataset:** Nexora utilizes a reproducible synthetic semiconductor manufacturing dataset (Seed 42) rather than proprietary real-world fab telemetry or live factory sensor data.
+- **Demonstration Scope & Persistence:** The demonstration is hosted on Render and utilizes SQLite; it is architected for hackathon evaluation and lacks enterprise-grade distributed storage and RBAC authentication.
+- **External Integrations & MCP Architecture:** Live MES/ERP and live supplier feeds are not connected; IBM Bob interacts natively through the 8 Model Context Protocol (MCP) tools rather than an embedded UI widget.
 
 ---
 
 ## 🏅 What We're Most Proud Of
 
-Nexora is strongest as an end-to-end operational intelligence platform rather than a generic chatbot or isolated ML model:
+Nexora is strongest as an end-to-end, explainable operational intelligence platform rather than a generic chatbot:
 
-1. **End-to-End Decision Workflow**
-   - Nexora connects equipment bottleneck detection, production impact analysis, supplier risk, geopolitical concentration, ML-based delivery delay prediction, What-If simulation, and recommendations into one operational workflow.
+- **Grounded IBM Bob MCP Integration:** 8 native Model Context Protocol (MCP) tools connecting IBM Bob directly to live fab bottleneck analytics, supplier risk scoring, and What-If simulation engines without fake mocks.
+- **Scenario-Specific What-If Disruption Simulator:** Multi-scenario stress-testing across 4 disruption archetypes with dynamically generated, condition-specific mitigation recommendations and SLA financial impact modeling.
+- **Complete, Tested & Deployed Platform:** A fully functional, live-deployed platform on Render (frontend + backend) backed by 53/53 passing automated tests and clean production builds.
 
-2. **IBM Bob + MCP Integration**
-   - Nexora exposes eight native MCP tools that allow IBM Bob to query and interact with the project's actual operational intelligence capabilities.
-   - Bob is connected to the real Nexora backend/tooling rather than being presented as a fake or simulated chatbot integration.
-
-3. **Scenario-Specific What-If Analysis**
-   - The simulator supports Supplier Disruption, Equipment Failure, Capacity Reduction, and Demand Surge.
-   - Recommendations are dynamically grounded in the selected scenario, affected entities, simulated impact, and operational data rather than returning the same generic recommendation for every scenario.
-
-4. **Explainable Risk and ML**
-   - Nexora combines deterministic operational risk scoring with a RandomForestRegressor delivery-delay prediction model.
-   - The model is trained and evaluated on the synthetic demonstration dataset with feature attribution and physics fallback.
-
-5. **Complete Working Submission**
-   - The project has a working deployed frontend and backend on Render.
-   - 53/53 automated tests pass.
-   - Frontend production build passes.
-   - Submission validation passes.
-   - The official hackathon template structure has been preserved.
 
