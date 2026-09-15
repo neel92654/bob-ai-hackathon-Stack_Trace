@@ -3,9 +3,19 @@
  * Communicates with Flask REST backend endpoints with robust error handling.
  */
 
-const API_BASE = (typeof window !== 'undefined' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'))
-  ? 'http://127.0.0.1:5001/api'
-  : '/api';
+function getApiBase() {
+  const envUrl = import.meta.env?.VITE_API_URL;
+  if (envUrl && typeof envUrl === 'string' && envUrl.trim() !== '') {
+    const cleanUrl = envUrl.trim().replace(/\/+$/, '');
+    return cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+  }
+  if (typeof window !== 'undefined' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')) {
+    return 'http://127.0.0.1:5001/api';
+  }
+  return '/api';
+}
+
+const API_BASE = getApiBase();
 
 
 export async function fetchHealth() {

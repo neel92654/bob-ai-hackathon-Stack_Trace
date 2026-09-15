@@ -40,5 +40,5 @@ SPOF_CONDITIONS = {
     "critical_materials": ["Gallium", "Neon Gas", "Palladium", "TMA", "EUV Photoresist"]
 }
 
-APP_PORT = int(os.environ.get("APP_PORT", 5001))
+APP_PORT = int(os.environ.get("PORT", os.environ.get("APP_PORT", 5001)))
 DEBUG = os.environ.get("FLASK_DEBUG", "False").lower() in ("true", "1", "yes")

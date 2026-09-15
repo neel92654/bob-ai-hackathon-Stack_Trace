@@ -1,0 +1,38 @@
+# =============================================================================
+# Render Blueprint Configuration — Nexora Platform
+# IBM Bob AI Innovation Hackathon 2026 (Problem Statement S2)
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # 1. Flask Backend API Web Service
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: nexora-backend
+    runtime: python
+    buildCommand: pip install -r src/backend/requirements.txt
+    startCommand: gunicorn "src.backend.app:app" --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: FLASK_DEBUG
+        value: "False"
+
+  # ---------------------------------------------------------------------------
+  # 2. React / Vite Frontend Static Site
+  # ---------------------------------------------------------------------------
+  - type: web
+    name: nexora-frontend
+    runtime: static
+    buildCommand: cd src/frontend && npm install && npm run build
+    staticPublishPath: src/frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: nexora-backend
+          property: host

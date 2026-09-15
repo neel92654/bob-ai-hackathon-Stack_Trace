@@ -65,9 +65,10 @@ def create_app():
         return jsonify({"status": "error", "message": "Internal server error"}), 500
 
     return app
+ 
+app = create_app()
 
 if __name__ == "__main__":
-    app = create_app()
     print("=" * 60)
     print(f"Starting Nexora Backend API Server on port {APP_PORT}...")
     print(f"Health check: http://127.0.0.1:{APP_PORT}/api/health")
