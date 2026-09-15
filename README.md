@@ -189,7 +189,7 @@ Open your browser at `http://localhost:5173`.
 
 | Artifact | Link |
 |---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
+| 📹 Demo Video | [See demo/demo-video-link.txt](https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link) |
 | 🌐 Live Demo | [See demo/live-demo-url.txt](https://nexora-7cs9.onrender.com/) |
 | 🖼️ Executive Dashboard | ![Dashboard](demo/screenshots/01-dashboard.png) |
 | 🖼️ Bottleneck Intelligence | ![Bottlenecks](demo/screenshots/02-bottleneck-analysis.png) |
