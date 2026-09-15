@@ -37,7 +37,7 @@ export function App() {
   const pageHeaders = {
     dashboard: {
       title: 'Operational Risk & Executive Overview',
-      subtitle: 'Real-time equipment bottleneck tracking, supplier single-point-of-failure analysis, and production impact.'
+      subtitle: 'Data-driven equipment bottleneck tracking, supplier single-point-of-failure analysis, and production impact intelligence.'
     },
     bottlenecks: {
       title: 'Fab Bottleneck Intelligence',
