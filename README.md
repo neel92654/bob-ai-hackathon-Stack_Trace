@@ -15,17 +15,8 @@
 | **Track** | **AI** |
 | **Problem Statement** | **S2 — Fab Bottleneck & Supply Chain Risk Advisor** |
 | **Repository** | [https://github.com/neel92654/bob-ai-hackathon-Stack_Trace](https://github.com/neel92654/bob-ai-hackathon-Stack_Trace) |
-| **Team Lead** | Neel Patel — `neelpatel.dev@outlook.com` |
-
----
-
-## 🎬 Live Demonstration & Video Walkthrough
-
-| Resource | Access Link | Description |
-|---|---|---|
-| 🌐 **Live Demo Platform** | **[https://nexora-7cs9.onrender.com](https://nexora-7cs9.onrender.com)** | Hosted full-stack interactive demonstration on Render |
-| 📹 **Demo Video Walkthrough** | **[Google Drive Video Link](https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link)** | 3–5 min comprehensive walkthrough of features & IBM Bob MCP integration |
-> The application is deployed on Render for hackathon demonstration and evaluation.
+| **Team Lead** | Neel Patel — `neel92654@gmail.com` |
+| **Members** | Mayank Padmani, Meet Ramani, Kremil Dobariya |
 
 ---
 
@@ -60,67 +51,6 @@ Semiconductor fabrication facilities operate tightly coupled, capital-intensive 
 - **Scenario-Specific Mitigation Recommendations:** Dynamically synthesizes primary mitigation protocols and supporting action directives grounded directly in calculated simulation results.
 - **Grounded Decision Assistant:** Natural-language console providing explainable operational answers backed strictly by verified platform data.
 - **IBM Bob MCP Server:** 8 registered MCP tools enabling IBM Bob to query live platform analytics and run simulations via STDIO transport.
-
----
-
-## 🤖 IBM Bob Integration (Model Context Protocol)
-
-Nexora connects to **IBM Bob** through the **Model Context Protocol (MCP)** standard.
-
-```
-┌────────────────────────────────────────────────────────┐
-│               IBM Bob (MCP Client / AI Agent)          │
-└───────────────────────────┬────────────────────────────┘
-                            │ (JSON-RPC via STDIO Transport)
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│        Nexora MCP Server (mcp-server/server.py)        │
-│         Exposes 8 Structured Operational Tools         │
-└───────────────────────────┬────────────────────────────┘
-                            │ (Direct Service Invocations)
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│            Nexora Analytics & ML Engines               │
-│  • Bottleneck Analyzer      • 5-Factor Supplier Engine │
-│  • RandomForest ML Model   • What-If Simulation Engine │
-└───────────────────────────┬────────────────────────────┘
-                            │
-                            ▼
-┌────────────────────────────────────────────────────────┐
-│     SQLite Database (nexora.db) & ML Artifacts         │
-└────────────────────────────────────────────────────────┘
-```
-
-### Registered MCP Tools for IBM Bob
-| Tool Name | Purpose |
-|---|---|
-| `get_fab_bottlenecks` | Retrieves fab equipment queue overloads, utilization %, and severity ratings. |
-| `get_bottleneck_details` | Deep-dive root-cause diagnostics, chamber health, and queued lots for a specific tool ID (`CVD-03`). |
-| `get_supplier_risk` | 5-factor supplier risk ranking (0–100), SPoF alerts, and geopolitical exposures. |
-| `get_supplier_details` | Detailed risk breakdown and alternate sourcing coverage for a supplier ID (`SUP-002`). |
-| `get_production_impact` | Active wafer lot tracking across manufacturing stages with ML delivery delay forecasts. |
-| `run_disruption_simulation` | Executes What-If disruption simulations with Before vs. After diffs and financial SLA exposure. |
-| `get_recommendations` | Prioritized, condition-driven mitigation action plans with operational rationales. |
-| `get_executive_summary` | High-level executive operational summary of overall fab risk, alerts, and top priorities. |
-
----
-
-## 🧠 Machine Learning & Explainability
-
-- **Model Architecture:** `RandomForestRegressor` (`n_estimators=100`, `max_depth=12`, `random_state=42`)
-- **Evaluation Metrics (Synthetic Demonstration Dataset):**
-  - **$R^2$ Score:** `0.9544`
-  - **Mean Absolute Error (MAE):** `2.809` hours
-  - **Root Mean Squared Error (RMSE):** `3.745` hours
-- **Features Used:** `tool_nominal_capacity`, `wip_queue_size`, `tool_utilization_pct`, `downstream_queue_size`, `wafer_quantity`, `lot_priority_num`, `remaining_stages`, `nominal_cycle_time_hr`, `chamber_health`, `has_active_disruption`.
-- **Explainability:** Feature importance breakdown with deterministic physics fallback calculation when offline.
-
----
-
-## 📊 Dataset & Transparency Notice
-
-> **Synthetic Demonstration Dataset Notice:**  
-> Nexora currently uses a reproducible synthetic demonstration dataset designed around the operational structure of the S2 problem statement (generated deterministically with Seed 42). The public website and APIs run a live deployment of the platform, but the underlying operational data is synthetic demonstration data rather than confidential semiconductor fab telemetry.
 
 ---
 
@@ -187,6 +117,79 @@ Nexora connects to **IBM Bob** through the **Model Context Protocol (MCP)** stan
 ```
 
 ---
+
+## 🎬 Live Demonstration & Video Walkthrough
+
+| Resource | Access Link | Description |
+|---|---|---|
+| 🌐 **Live Demo Platform** | **[https://nexora-7cs9.onrender.com](https://nexora-7cs9.onrender.com)** | Hosted full-stack interactive demonstration on Render |
+| 📹 **Demo Video Walkthrough** | **[Google Drive Video Link](https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link)** | 3–5 min comprehensive walkthrough of features & IBM Bob MCP integration |
+> The application is deployed on Render for hackathon demonstration and evaluation.
+
+---
+
+
+## 🤖 IBM Bob Integration (Model Context Protocol)
+
+Nexora connects to **IBM Bob** through the **Model Context Protocol (MCP)** standard.
+
+```
+┌────────────────────────────────────────────────────────┐
+│               IBM Bob (MCP Client / AI Agent)          │
+└───────────────────────────┬────────────────────────────┘
+                            │ (JSON-RPC via STDIO Transport)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│        Nexora MCP Server (mcp-server/server.py)        │
+│         Exposes 8 Structured Operational Tools         │
+└───────────────────────────┬────────────────────────────┘
+                            │ (Direct Service Invocations)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│            Nexora Analytics & ML Engines               │
+│  • Bottleneck Analyzer      • 5-Factor Supplier Engine │
+│  • RandomForest ML Model   • What-If Simulation Engine │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│     SQLite Database (nexora.db) & ML Artifacts         │
+└────────────────────────────────────────────────────────┘
+```
+
+### Registered MCP Tools for IBM Bob
+| Tool Name | Purpose |
+|---|---|
+| `get_fab_bottlenecks` | Retrieves fab equipment queue overloads, utilization %, and severity ratings. |
+| `get_bottleneck_details` | Deep-dive root-cause diagnostics, chamber health, and queued lots for a specific tool ID (`CVD-03`). |
+| `get_supplier_risk` | 5-factor supplier risk ranking (0–100), SPoF alerts, and geopolitical exposures. |
+| `get_supplier_details` | Detailed risk breakdown and alternate sourcing coverage for a supplier ID (`SUP-002`). |
+| `get_production_impact` | Active wafer lot tracking across manufacturing stages with ML delivery delay forecasts. |
+| `run_disruption_simulation` | Executes What-If disruption simulations with Before vs. After diffs and financial SLA exposure. |
+| `get_recommendations` | Prioritized, condition-driven mitigation action plans with operational rationales. |
+| `get_executive_summary` | High-level executive operational summary of overall fab risk, alerts, and top priorities. |
+
+---
+
+## 🧠 Machine Learning & Explainability
+
+- **Model Architecture:** `RandomForestRegressor` (`n_estimators=100`, `max_depth=12`, `random_state=42`)
+- **Evaluation Metrics (Synthetic Demonstration Dataset):**
+  - **$R^2$ Score:** `0.9544`
+  - **Mean Absolute Error (MAE):** `2.809` hours
+  - **Root Mean Squared Error (RMSE):** `3.745` hours
+- **Features Used:** `tool_nominal_capacity`, `wip_queue_size`, `tool_utilization_pct`, `downstream_queue_size`, `wafer_quantity`, `lot_priority_num`, `remaining_stages`, `nominal_cycle_time_hr`, `chamber_health`, `has_active_disruption`.
+- **Explainability:** Feature importance breakdown with deterministic physics fallback calculation when offline.
+
+---
+
+## 📊 Dataset & Transparency Notice
+
+> **Synthetic Demonstration Dataset Notice:**  
+> Nexora currently uses a reproducible synthetic demonstration dataset designed around the operational structure of the S2 problem statement (generated deterministically with Seed 42). The public website and APIs run a live deployment of the platform, but the underlying operational data is synthetic demonstration data rather than confidential semiconductor fab telemetry.
+
+---
+
 
 ## ⚡ Local Setup & Reproduction Instructions
 
