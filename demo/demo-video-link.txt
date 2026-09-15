@@ -1,5 +1,2 @@
-PENDING DEMO RECORDING — see demo/screenshots/ and docs/setup-guide.md
+https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link
 
-Nexora Video Demonstration Link (IBM Bob AI Innovation Hackathon 2026)
-Demonstration screenshots available in demo/screenshots/
-Local 3-minute reproduction walkthrough available in docs/setup-guide.md
