@@ -1,7 +1,7 @@
 # 🚀 Nexora — Operational Risk & Supply Intelligence Platform
 
 > **IBM Bob AI Innovation Hackathon 2026**  
-> **Track:** AI  
+> **Track:** Semiconductor
 > **Problem Statement S2:** Fab Bottleneck & Supply Chain Risk Advisor  
 
 ---
