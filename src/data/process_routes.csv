@@ -1,0 +1,11 @@
+step_seq,process_id,name,nominal_cycle_time_hr,predecessor_id
+1,PRC-01,Wafer Prep & Clean,3.5,
+2,PRC-02,Oxidation & Thermal,6.0,PRC-01
+3,PRC-03,Photolithography (EUV/DUV),8.0,PRC-02
+4,PRC-04,Plasma & Reactive Etch,5.5,PRC-03
+5,PRC-05,Ion Implantation,4.5,PRC-04
+6,PRC-06,Chemical Vapor Deposition (CVD),7.0,PRC-05
+7,PRC-07,Physical Vapor Deposition (PVD),5.0,PRC-06
+8,PRC-08,Chemical Mechanical Polishing (CMP),4.0,PRC-07
+9,PRC-09,In-line Metrology & Defect Scan,3.0,PRC-08
+10,PRC-10,Wafer Test & Final Packaging,6.5,PRC-09

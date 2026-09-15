@@ -1,30 +1,18 @@
-# Presentation
+# Presentation Deck: Nexora
 
-Place your slide deck in this folder.
+This directory contains the presentation outline and slide structure for **Nexora — Operational Risk & Supply Intelligence Platform** (IBM Bob AI Innovation Hackathon 2026, Problem S2).
 
-## Accepted Formats
+---
 
-  slides.pdf      ← Preferred (universally viewable)
-  slides.pptx     ← Acceptable
-  slides.key      ← Acceptable (macOS Keynote)
+## Slide Deck Overview (8 Slides)
 
-Rename your file to `slides.pdf` (or `slides.pptx`) so the evaluation
-pipeline can locate it reliably.
+- **Slide 1: Title & Overview** — *Nexora: Operational Risk & Supply Intelligence Platform* (IBM Bob AI Hackathon 2026, Problem Statement S2).
+- **Slide 2: The Problem** — Fab bottleneck congestion, queue back-pressure, single-point-of-failure supplier exposure, and lack of simulation tools.
+- **Slide 3: Why Existing Approaches Fall Short** — Siloed MES/ERP tools, black-box opaque metrics, reactive post-mortems, and zero pre-emptive simulation.
+- **Slide 4: The Nexora Solution** — End-to-end explainable intelligence answering *Where*, *How Severe*, *What Impact*, *Which Suppliers*, and *What Action*.
+- **Slide 5: Technical Architecture** — React 18 frontend + Python Flask REST API + SQLite + Interpretable `RandomForestRegressor` ML ($R^2 = 0.954$).
+- **Slide 6: Fab Bottleneck & SPoF Intelligence** — Live capacity utilization progress meters, 10-stage process flow starvation mapping, and 5-factor explainable supplier risk scoring.
+- **Slide 7: What-If Disruption Simulator** — Proactive discrete-event simulation of supplier embargoes and equipment outages with Before vs. After metric diffs and financial SLA risk.
+- **Slide 8: IBM Bob Integration & Impact** — Grounded decision assistant reasoning, prescriptive condition-driven mitigations, and roadmap.
 
-## Recommended Slide Structure (5–8 slides)
-
-  Slide 1: Title — Project name, team name, track
-  Slide 2: Problem — What problem? Who has it? Why does it matter?
-  Slide 3: Solution — What you built in one clear diagram or screenshot
-  Slide 4: Architecture — How the system works technically
-  Slide 5: Demo / Key Feature — Screenshot or flow of your best feature
-  Slide 6: IBM Technologies — Specifically how you used them
-  Slide 7: Results / Impact — What does success look like? Any metrics?
-  Slide 8: Team — Names, roles, what each person built
-
-## Tips
-
-- Keep slides visual — diagrams beat bullet points
-- One idea per slide
-- Font size minimum 24pt for readability
-- Do not paste large code blocks into slides — reference the repo instead
+*For complete slide notes and text, see [`slides.md`](slides.md).*

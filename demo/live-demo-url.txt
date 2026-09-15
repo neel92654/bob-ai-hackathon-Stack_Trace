@@ -1,11 +1,12 @@
-https://your-live-demo-url-here.com
+NOT DEPLOYED — run locally using docs/setup-guide.md
 
-Replace the URL above with a link to your live/deployed demo.
+The Nexora platform is designed as an offline-first, high-performance operational intelligence suite.
+To launch locally on your machine in under 2 minutes, follow the step-by-step instructions in docs/setup-guide.md:
 
-If your project is not deployed, delete this line and write:
-  NOT DEPLOYED — run locally using docs/setup-guide.md
-
-Accepted options:
-  - A public URL (Vercel, Render, IBM Cloud, Railway, etc.)
-  - A localhost URL with note that it requires local setup
-  - "NOT DEPLOYED" — judges will run it locally using your setup guide
+1. python3 scripts/generate_data.py
+2. python3 scripts/init_db.py
+3. python3 src/backend/ml/train_delivery_model.py
+4. python3 src/backend/app.py
+5. cd src/frontend && npm install && npm run dev
+Application URL: http://localhost:5173
+Backend API: http://127.0.0.1:5001

@@ -38,6 +38,7 @@ yarn-error.log*
 .npm
 .yarn
 dist/
+.vite/
 .next/
 .nuxt/
 .output/
@@ -83,7 +84,8 @@ demo/*.avi
 demo/*.mkv
 
 # ── Docker volumes / local data ───────────────────────────────────────────────
-data/
+/data/
+!src/data/*.csv
 logs/
 *.log
 

@@ -1,0 +1,23 @@
+supplier_id,name,material,country,lead_time_days,dependency_pct,criticality,alternate_supplier,alternate_lead_time_days,alternate_capacity_pct,geo_risk_factor,status,single_point_of_failure,affected_process_ids
+SUP-001,Shin-Etsu Chemical Co.,High-Purity Silicon Wafers (300mm),Japan,28,58,HIGH,SUMCO Corp.,35,45,1.1,ACTIVE,0,"PRC-01,PRC-02"
+SUP-002,Global Gallium Refining Ltd.,High-Purity Gallium / GaAs Substrates,China,45,91,CRITICAL,None,0,0,1.8,ALERT,1,"PRC-02,PRC-05,PRC-06"
+SUP-003,Tokyo Ohka Kogyo (TOK),EUV Photoresist Polymer,Japan,30,74,CRITICAL,JSR Micro,42,30,1.15,ACTIVE,0,PRC-03
+SUP-004,Ingas Purification Corp.,Ultra-Pure Neon Gas (Excimer Laser),Ukraine,60,82,CRITICAL,Cryoin Engineering (Partial),90,15,1.95,CRITICAL_WATCH,1,PRC-03
+SUP-005,Merck Electronics KGaA,Advanced CMP Slurry & Pads,Germany,18,45,MEDIUM,Cabot Microelectronics,21,55,1.05,ACTIVE,0,PRC-08
+SUP-006,Entegris Inc.,Ultra-Pure Liquid Chemical Precursors (TEOS/Silane),United States,14,38,MEDIUM,Versum Materials,18,60,1.0,ACTIVE,0,"PRC-06,PRC-07"
+SUP-007,BASF SE Electronic Materials,Electronic-Grade Hydrofluoric Acid (HF),Germany,22,52,HIGH,Stella Chemifa,30,40,1.05,ACTIVE,0,"PRC-01,PRC-04"
+SUP-008,Umicore Noble Metals,Palladium & Platinum Sputtering Targets,Belgium,35,68,HIGH,Materion Corp.,40,35,1.08,ACTIVE,0,PRC-07
+SUP-009,Norilsk Specialty Metallics,Refined Palladium Precursors,Russia,55,79,CRITICAL,None,0,0,1.9,HIGH_RISK,1,PRC-07
+SUP-010,Kyocera Fine Ceramics,Ceramic Electrostatic Chucks (ESC),Japan,42,62,HIGH,NGK Spark Plug,50,38,1.12,ACTIVE,0,"PRC-04,PRC-06"
+SUP-011,"GlobalWafers Co., Ltd.",Silicon Epitaxial Wafers,Taiwan,25,48,HIGH,Siltronic AG,32,45,1.35,ACTIVE,0,"PRC-01,PRC-02"
+SUP-012,Linde Gas Asia,Ultra-High Purity Nitrogen & Argon,Singapore,7,30,LOW,Air Liquide,10,70,1.0,ACTIVE,0,"PRC-01,PRC-02,PRC-06,PRC-07"
+SUP-013,DuPont Interconnect Solutions,Polyimide Dielectric Coatings,United States,20,42,MEDIUM,Toray Industries,26,50,1.0,ACTIVE,0,PRC-10
+SUP-014,SK Siltron CSS,Silicon Carbide (SiC) Substrates,South Korea,38,65,HIGH,Wolfspeed Inc.,45,35,1.2,ACTIVE,0,"PRC-01,PRC-02"
+SUP-015,Zeon Corporation,C4F8 / Fluorocarbon Etch Specialty Gases,Japan,24,54,HIGH,Solvay Special Chem,30,40,1.1,ACTIVE,0,PRC-04
+SUP-016,Resonac Holdings (Showa Denko),High-Purity Ammonia (NH3),Japan,19,49,MEDIUM,Tongwei Co.,25,45,1.1,ACTIVE,0,PRC-06
+SUP-017,JX Nippon Mining & Metals,High-Purity Copper Sputtering Targets (99.9999%),Japan,26,57,HIGH,Honeywell Electronic Materials,32,40,1.1,ACTIVE,0,PRC-07
+SUP-018,"SoulBrain Co., Ltd.",Ultra-High Purity Phosphoric Acid,South Korea,16,36,MEDIUM,Arkema,22,60,1.15,ACTIVE,0,PRC-04
+SUP-019,Nata Optoelectronic Material,Trimethylaluminum (TMA) ALD Precursor,China,35,84,CRITICAL,UP Chemical (Partial),48,16,1.75,ALERT,1,PRC-06
+SUP-020,Tanaka Kikinzoku Kogyo,Gold & Silver Bonding Wire,Japan,21,46,MEDIUM,Heraeus Electronics,24,50,1.1,ACTIVE,0,PRC-10
+SUP-021,Microchem Corp.,EBR (Edge Bead Removal) Solvent,United States,12,25,LOW,Avantor Performance,15,75,1.0,ACTIVE,0,PRC-03
+SUP-022,Adeka Corporation,High-k Hafnium Dielectric Precursor,Japan,32,63,HIGH,Air Liquide Electronics,38,37,1.12,ACTIVE,0,PRC-06

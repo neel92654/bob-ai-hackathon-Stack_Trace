@@ -1,0 +1,29 @@
+tool_id,name,process_id,nominal_capacity,current_wip,status,chamber_health,maintenance_due_hours,mtbf_hours
+LITH-01,ASML EUV Stepper Alpha,PRC-03,40,48,RUNNING,88,120,720
+LITH-02,ASML DUV Scanner Beta,PRC-03,50,42,RUNNING,94,340,850
+LITH-03,Nikon Immersion Scanner,PRC-03,35,46,MAINTENANCE_WARNING,74,24,600
+CVD-01,Applied Materials Centura CVD,PRC-06,45,38,RUNNING,92,210,900
+CVD-02,Lam Vector PECVD,PRC-06,40,36,RUNNING,86,180,820
+CVD-03,Tokyo Electron Telindy ALD/CVD,PRC-06,30,46,RUNNING,68,18,650
+ETCH-01,Lam Kiyo Dielectric Etcher,PRC-04,50,35,RUNNING,95,400,1100
+ETCH-02,Applied Materials Producer Etch,PRC-04,45,52,RUNNING,79,48,750
+ETCH-03,TEL Tactras ICP Etcher,PRC-04,35,28,RUNNING,91,290,950
+CMP-01,Applied Materials Reflexion LK,PRC-08,50,44,RUNNING,85,160,700
+CMP-02,Ebara Planarization System,PRC-08,40,32,RUNNING,90,310,800
+IMP-01,Axcelis Purion H High-Current,PRC-05,35,39,RUNNING,81,95,680
+IMP-02,Varian VIISta Medium-Current,PRC-05,40,25,RUNNING,93,420,1000
+PVD-01,Applied Materials Endura PVD,PRC-07,45,39,RUNNING,87,250,850
+PVD-02,Evatec Sputter System,PRC-07,30,26,RUNNING,89,190,780
+MET-01,KLA Archer Optical CD/Overlay,PRC-09,60,45,RUNNING,96,500,1200
+MET-02,Hitachi High-Tech CD-SEM,PRC-09,40,34,RUNNING,90,280,900
+MET-03,Applied Materials SEMVision Defect,PRC-09,35,41,RUNNING,78,60,620
+CLN-01,DNS Wet Station Clean 300,PRC-01,70,48,RUNNING,97,600,1400
+CLN-02,Tokyo Electron Celius Single-Wafer,PRC-01,65,50,RUNNING,92,450,1300
+THM-01,TEL Vertical Furnace Alpha,PRC-02,55,40,RUNNING,94,380,1150
+THM-02,Kokusai Electric Diffusion Furnace,PRC-02,50,37,RUNNING,88,220,980
+PKG-01,Advantest V93000 Wafer Prober,PRC-10,60,42,RUNNING,91,300,1050
+PKG-02,Teradyne UltraFLEX Test System,PRC-10,55,38,RUNNING,95,480,1250
+PKG-03,DISCO Ultra-Thin Wafer Dicer,PRC-10,45,31,RUNNING,87,170,890
+PKG-04,BESI Flip-Chip Die Bonder,PRC-10,40,29,RUNNING,93,350,1100
+CVD-04,Kokusai Atomic Layer Deposition,PRC-06,30,22,RUNNING,91,320,850
+ETCH-04,Hitachi M-600 Micro-Wave Etcher,PRC-04,35,20,RUNNING,96,510,1300

@@ -1,0 +1,37 @@
+{
+  "model_type": "RandomForestRegressor",
+  "n_estimators": 100,
+  "features": [
+    "tool_nominal_capacity",
+    "wip_queue_size",
+    "tool_utilization_pct",
+    "downstream_queue_size",
+    "wafer_quantity",
+    "lot_priority_num",
+    "remaining_stages",
+    "nominal_cycle_time_hr",
+    "chamber_health",
+    "has_active_disruption"
+  ],
+  "target": "actual_delay_hours",
+  "metrics": {
+    "mae_hours": 2.809,
+    "rmse_hours": 3.745,
+    "r2_score": 0.9544,
+    "test_samples": 130,
+    "train_samples": 520
+  },
+  "feature_importances": {
+    "tool_utilization_pct": 0.7563798487655892,
+    "wip_queue_size": 0.1013746758510372,
+    "has_active_disruption": 0.08132013255321549,
+    "downstream_queue_size": 0.023889328147859868,
+    "chamber_health": 0.019863138191719427,
+    "lot_priority_num": 0.006010837186110317,
+    "tool_nominal_capacity": 0.003873002757096193,
+    "remaining_stages": 0.0029632926582326734,
+    "nominal_cycle_time_hr": 0.002387003229005634,
+    "wafer_quantity": 0.0019387406601340169
+  },
+  "trained_timestamp": "2026-09-15T01:07:13.199565"
+}
