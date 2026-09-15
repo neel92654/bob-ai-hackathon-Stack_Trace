@@ -15,7 +15,7 @@
 | **Track** | **AI** |
 | **Problem Statement** | **S2 — Fab Bottleneck & Supply Chain Risk Advisor** |
 | **Repository** | [https://github.com/neel92654/bob-ai-hackathon-Stack_Trace](https://github.com/neel92654/bob-ai-hackathon-Stack_Trace) |
-| **Team Lead** | Neel Patel — `neel92654@gmail.com` |
+| **Team Lead** | Neel Patel — `25dce087@charusat.edu.in` |
 | **Members** | Mayank Padmani, Meet Ramani, Kremil Dobariya |
 
 ---
