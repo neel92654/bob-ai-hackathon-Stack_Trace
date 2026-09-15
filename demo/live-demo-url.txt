@@ -1,12 +1,2 @@
-NOT DEPLOYED — run locally using docs/setup-guide.md
+https://nexora-7cs9.onrender.com
 
-The Nexora platform is designed as an offline-first, high-performance operational intelligence suite.
-To launch locally on your machine in under 2 minutes, follow the step-by-step instructions in docs/setup-guide.md:
-
-1. python3 scripts/generate_data.py
-2. python3 scripts/init_db.py
-3. python3 src/backend/ml/train_delivery_model.py
-4. python3 src/backend/app.py
-5. cd src/frontend && npm install && npm run dev
-Application URL: http://localhost:5173
-Backend API: http://127.0.0.1:5001

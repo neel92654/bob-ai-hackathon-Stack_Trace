@@ -1,98 +1,70 @@
 # 🚀 Nexora — Operational Risk & Supply Intelligence Platform
 
 > **IBM Bob AI Innovation Hackathon 2026**  
-> **Track:** AI  
-> **Problem Statement S2:** Fab Bottleneck & Supply Chain Risk Advisor
+> **Track:** Semiconductor  
+> **Problem Statement S2:** Fab Bottleneck & Supply Chain Risk Advisor  
 
 ---
 
-## 👥 Team & Repository
+## 👥 Team & Submission Metadata
 
-| Field | Value |
+| Field | Details |
 |---|---|
-| **Project** | **Nexora — Operational Risk & Supply Intelligence Platform** |
+| **Project Title** | **Nexora — Operational Risk & Supply Intelligence Platform** |
 | **Team Name** | **Stack_Trace** |
-| **Track** | Semiconductor |
+| **Track** | **Semiconductor** |
+| **Problem Statement** | **S2 — Fab Bottleneck & Supply Chain Risk Advisor** |
 | **Repository** | [https://github.com/neel92654/bob-ai-hackathon-Stack_Trace](https://github.com/neel92654/bob-ai-hackathon-Stack_Trace) |
-| **Team Lead** | Neel Patel — `neel92654@gmail.com` |
+| **Team Lead** | Neel Patel — `25dce087@charusat.edu.in` |
 | **Members** | Mayank Padmani, Meet Ramani, Kremil Dobariya |
 
 ---
 
 ## 🎯 Problem Statement
 
-Chip lead times are 26–52 weeks. Bottlenecks at specific process steps (lithography, etch, CVD) cause cascading delivery delays — the 2021 chip shortage halted auto
-factories for months. Simultaneously, single-source suppliers for critical materials (gallium, neon, photoresists) create catastrophic risk: China controls 80%+ of gallium
-and germanium, both now under export controls.
+Semiconductor fabrication facilities operate tightly coupled, capital-intensive manufacturing lines where wafer cycle times span 26 to 52 weeks. Work-in-Progress (WIP) queue bottlenecks at critical equipment stages (Photolithography, Dry Etch, CVD) cause cascading delays across the fab. Simultaneously, extreme reliance on single-source chemical and material suppliers (such as Gallium, Neon gas, and EUV photoresist) exposes operations to catastrophic supply shocks. When equipment breaks down or export restrictions hit, operations and procurement teams lack unified, explainable tools to forecast downstream delivery impacts and simulate mitigation protocols before committing actions.
 
 ---
 
-## 💡 Solution
+## 💡 The Nexora Solution
 
-**Nexora** is an explainable operational intelligence platform designed for semiconductor fab operators and supply chain planners. It continuously analyzes equipment WIP queue pressures across sequential manufacturing stages, predicts order delivery delays using a trained `RandomForestRegressor` ML model ($R^2 = 0.954$), evaluates single-point-of-failure (SPoF) suppliers and geopolitical concentration risks, simulates multi-day operational disruptions through an interactive What-If engine, and synthesizes prioritized, condition-driven mitigation protocols.
-
----
-
-## 🤖 IBM Bob Integration (Model Context Protocol)
-
-Nexora integrates with **IBM Bob** using the **Model Context Protocol (MCP)**. In this architecture:
-1. **IBM Bob acts as the AI Agent / Interface:** The user asks natural-language operational questions directly to Bob.
-2. **Nexora MCP Server (`mcp-server/`):** Exposes 8 structured operational intelligence tools to Bob over standard STDIO transport.
-3. **Tool Discovery & Execution:** Bob automatically discovers Nexora's tools via `.bob/mcp.json` and invokes the appropriate tool when answering questions.
-4. **Verified Telemetry & Grounding:** Nexora executes the underlying analytics/ML calculation and returns structured data.
-5. **Explainable Decision Support:** Bob uses the verified operational data to explain the root causes, quantify delivery impacts, and provide prescriptive guidance.
-
-### Architecture Diagram
-```
-IBM Bob (MCP Client / Agent)
-      │
-      ▼ (STDIO Transport / JSON-RPC via .bob/mcp.json)
-Nexora MCP Server (mcp-server/server.py)
-      │
-      ▼ (Reuses existing analytics services — zero logic duplication)
-Nexora Analytics, ML & Simulation Engines
-      │
-      ▼
-SQLite Database (nexora.db) + ML Model (delivery_model.joblib)
-      │
-      ▼
-Verified Operational Fab & Supply Telemetry
-```
-
-### Registered MCP Tools for IBM Bob
-- `get_fab_bottlenecks`: Fab equipment queue overloads, utilization %, severity, and affected lot counts.
-- `get_bottleneck_details`: Deep-dive root-cause diagnostics, chamber health, MTBF, and assigned wafer lots for a specific tool ID (`CVD-03`, `LITH-01`).
-- `get_supplier_risk`: Explainable 5-factor supplier risk ranking (0–100), SPoF flags, and geopolitical exposures.
-- `get_supplier_details`: Complete risk profiling, factor breakdowns, and alternate source availability for a supplier ID (`SUP-002`).
-- `get_production_impact`: Active wafer lot tracking across 10 manufacturing stages with ML delivery delay predictions.
-- `run_disruption_simulation`: Executes What-If disruption simulations (Supplier Disruption, Tool Breakdown, Capacity Derating, Demand Surge) with Before vs. After metric diffs and SLA financial exposure.
-- `get_recommendations`: Prioritized, condition-driven mitigation action plans with operational rationales and expected benefits.
-- `get_executive_summary`: High-level executive operational summary of fab risk score, critical alerts, and top mitigations.
+**Nexora** is an explainable operational risk and supply chain intelligence platform designed for semiconductor operations managers, fab line dispatchers, and procurement leaders. Nexora combines:
+1. **Fab Bottleneck Intelligence:** Real-time queue-to-capacity tracking across 10 sequential semiconductor fabrication stages.
+2. **Explainable 5-Factor Supplier Risk Scoring:** Multi-factor supplier evaluations with automated Single-Point-of-Failure (SPoF) detection.
+3. **Machine Learning Delivery Delay Forecasting:** Interpretable `RandomForestRegressor` ($R^2 = 0.954$, $\text{MAE} = 2.81\text{h}$) predicting downstream customer order delays.
+4. **Interactive What-If Disruption Simulator:** Multi-scenario stress-testing engine generating side-by-side Before vs. After metric diffs, financial SLA exposure, and scenario-specific mitigation recommendations.
+5. **IBM Bob AI Agent Integration:** Native Model Context Protocol (MCP) server exposing 8 operational intelligence tools for natural-language decision support.
 
 ---
 
 ## ✨ Key Features
 
-- **Fab Bottleneck Intelligence:** Real-time tool utilization tracking ($\text{Utilization} = \text{WIP} / \text{Capacity} \times 100$), queue pressure metrics, and 10-stage downstream process flow starvation mapping.
-- **Explainable 5-Factor Supplier Risk Scoring:** Transparent 0–100 risk scoring with automated Single-Point-of-Failure (SPoF) detection and country-level geopolitical concentration analytics.
-- **Interpretable ML Delivery Delay Prediction:** Validated scikit-learn regression model ($R^2 = 0.954$, MAE = 2.81h) attributing feature contributions with an automatic deterministic physics fallback.
-- **Interactive 4-Scenario What-If Disruption Simulator:** Simulates supplier embargoes, equipment outages, capacity derating, and demand surges with Before vs. After metric diffs and financial SLA exposure calculations.
-- **Condition-Driven Recommendation Engine:** Prescriptive mitigation protocols dynamically generated from active queue overloads, chamber health drifts, and single-source dependencies.
-- **Real MCP Server for IBM Bob:** 8 native tools exposing full fab analytics, simulations, and recommendations to IBM Bob.
+- **Fab Bottleneck Intelligence:** Computes equipment utilization ($\text{Utilization} = \text{WIP} / \text{Capacity} \times 100$), queue pressure metrics, and 10-stage sequential flow starvation mapping.
+- **Explainable 5-Factor Supplier Risk Scoring:** Transparent 0–100 scoring based on Market Dependency (30%), Lead Time (25%), Material Criticality (20%), Geopolitical Risk (15%), and Alternate Availability (10%).
+- **Automated SPoF Detection:** Instantly flags suppliers with $\ge 75\%$ dependency and no viable secondary source (e.g., Gallium, Neon Gas).
+- **ML Delivery Delay Forecasting:** Trained RandomForestRegressor model predicting lot-level cycle delays with feature importance attribution and physics fallback.
+- **Interactive 4-Scenario What-If Disruption Simulator:**
+  1. *Supplier Disruption:* Evaluates multi-day raw material embargoes and inventory stockout horizons.
+  2. *Equipment Failure:* Evaluates unscheduled machine breakdowns, WIP queue backpressure, and alternate tool rerouting.
+  3. *Capacity Reduction:* Evaluates chamber derating, shift adjustments, and maintenance load balancing.
+  4. *Demand Surge:* Evaluates incoming wafer volume spikes and fleet-wide bottleneck formations.
+- **Scenario-Specific Mitigation Recommendations:** Dynamically synthesizes primary mitigation protocols and supporting action directives grounded directly in calculated simulation results.
+- **Grounded Decision Assistant:** Natural-language console providing explainable operational answers backed strictly by verified platform data.
+- **IBM Bob MCP Server:** 8 registered MCP tools enabling IBM Bob to query live platform analytics and run simulations via STDIO transport.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category | Technologies |
+| Component | Technologies |
 |---|---|
-| **Languages** | Python 3.11, JavaScript (ES6+), SQL, HTML5, CSS3 |
-| **Backend & ML** | Flask, Flask-CORS, scikit-learn, Pandas, NumPy, Joblib |
-| **MCP & Agent Layer** | Model Context Protocol (MCP SDK 2.x), `.bob/mcp.json` |
-| **Frontend** | React 18, Vite, Lucide Icons, Custom Modern CSS Design System |
-| **IBM Technologies** | IBM Bob + MCP Integration |
-| **Databases** | SQLite (`nexora.db`) |
-| **Testing & CI** | Pytest (52 automated tests passing), GitHub Actions |
+| **Frontend UI** | React 18, Vite, Lucide Icons, Vanilla Modern CSS Design System |
+| **Backend REST API** | Python 3.11, Flask, Flask-CORS, Gunicorn |
+| **Machine Learning** | scikit-learn, Pandas, NumPy, Joblib |
+| **MCP / Agent Layer** | Model Context Protocol (MCP Python SDK), `.bob/mcp.json` |
+| **Database** | SQLite (`nexora.db`) |
+| **Testing & CI** | Pytest (53 automated tests), GitHub Actions CI |
+| **Deployment** | Render (Static Site + Python Web Service with `render.yaml`) |
 
 ---
 
@@ -107,13 +79,13 @@ Verified Operational Fab & Supply Telemetry
 │   └── README.md              # MCP server documentation
 ├── src/
 │   ├── backend/               # Flask REST API, calculations, routes, services & ML
-│   │   ├── app.py             # Flask application gateway
+│   │   ├── app.py             # Flask application gateway & WSGI entry point
 │   │   ├── config/            # Configurable risk thresholds & weights
 │   │   ├── models/            # SQLite connection and schema
 │   │   ├── routes/            # REST API blueprints (7 endpoints)
-│   │   ├── services/          # Core analytics & decision engines
+│   │   ├── services/          # Core analytics & simulation engines
 │   │   ├── ml/                # RandomForestRegressor pipeline & inference
-│   │   └── utils/             # Pure calculation & validation functions
+│   │   └── utils/             # Calculation & validation functions
 │   ├── frontend/              # React 18 + Vite industrial dashboard UI
 │   │   ├── src/components/    # Modular UI components (Navbar, Flow, Badges, Modals)
 │   │   ├── src/pages/         # 7 core views (Dashboard, Bottlenecks, Supply, Simulator...)
@@ -127,17 +99,18 @@ Verified Operational Fab & Supply Telemetry
 │   ├── architecture.md        # Technical architecture with Mermaid diagrams
 │   ├── setup-guide.md         # Step-by-step reproduction instructions
 │   └── template-guide.md      # Template guide
-├── demo/                      # Demo artifacts
-│   ├── screenshots/           # 5 application screenshots
+├── demo/                      # Demonstration artifacts
+│   ├── screenshots/           # Application & IBM Bob MCP integration screenshots
 │   ├── demo-video-link.txt    # Video walkthrough link
-│   └── live-demo-url.txt      # Local/hosted deployment details
+│   └── live-demo-url.txt      # Hosted live demo URL
 ├── presentation/              # Slide deck documentation
 │   ├── README.md
 │   └── slides.md
 ├── scripts/                   # Reproducible generator & database initializers
 │   ├── generate_data.py       # Deterministic synthetic data generator (Seed: 42)
 │   └── init_db.py             # SQLite ingestion script
-├── tests/                     # 52 automated backend & MCP tests
+├── tests/                     # 53 automated backend & MCP tests
+├── render.yaml                # Render Blueprint deployment configuration
 ├── submission.yaml            # Structured submission metadata
 ├── CONTRIBUTING.md            # Submission instructions
 └── README.md                  # Main project entry point
@@ -145,73 +118,157 @@ Verified Operational Fab & Supply Telemetry
 
 ---
 
-## ⚡ How to Run
+## 🎬 Live Demonstration & Video Walkthrough
+
+| Resource | Access Link | Description |
+|---|---|---|
+| 🌐 **Live Demo Platform** | **[https://nexora-7cs9.onrender.com](https://nexora-7cs9.onrender.com)** | Hosted full-stack interactive demonstration on Render |
+| 📹 **Demo Video Walkthrough** | **[Google Drive Video Link](https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link)** | 3–5 min comprehensive walkthrough of features & IBM Bob MCP integration |
+> The application is deployed on Render for hackathon demonstration and evaluation.
+
+---
+
+
+## 🤖 IBM Bob Integration (Model Context Protocol)
+
+Nexora connects to **IBM Bob** through the **Model Context Protocol (MCP)** standard.
+
+```
+┌────────────────────────────────────────────────────────┐
+│               IBM Bob (MCP Client / AI Agent)          │
+└───────────────────────────┬────────────────────────────┘
+                            │ (JSON-RPC via STDIO Transport)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│        Nexora MCP Server (mcp-server/server.py)        │
+│         Exposes 8 Structured Operational Tools         │
+└───────────────────────────┬────────────────────────────┘
+                            │ (Direct Service Invocations)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│            Nexora Analytics & ML Engines               │
+│  • Bottleneck Analyzer      • 5-Factor Supplier Engine │
+│  • RandomForest ML Model   • What-If Simulation Engine │
+└───────────────────────────┬────────────────────────────┘
+                            │
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│     SQLite Database (nexora.db) & ML Artifacts         │
+└────────────────────────────────────────────────────────┘
+```
+
+### Registered MCP Tools for IBM Bob
+| Tool Name | Purpose |
+|---|---|
+| `get_fab_bottlenecks` | Retrieves fab equipment queue overloads, utilization %, and severity ratings. |
+| `get_bottleneck_details` | Deep-dive root-cause diagnostics, chamber health, and queued lots for a specific tool ID (`CVD-03`). |
+| `get_supplier_risk` | 5-factor supplier risk ranking (0–100), SPoF alerts, and geopolitical exposures. |
+| `get_supplier_details` | Detailed risk breakdown and alternate sourcing coverage for a supplier ID (`SUP-002`). |
+| `get_production_impact` | Active wafer lot tracking across manufacturing stages with ML delivery delay forecasts. |
+| `run_disruption_simulation` | Executes What-If disruption simulations with Before vs. After diffs and financial SLA exposure. |
+| `get_recommendations` | Prioritized, condition-driven mitigation action plans with operational rationales. |
+| `get_executive_summary` | High-level executive operational summary of overall fab risk, alerts, and top priorities. |
+
+---
+
+## 🧠 Machine Learning & Explainability
+
+- **Model Architecture:** `RandomForestRegressor` (`n_estimators=100`, `max_depth=12`, `random_state=42`)
+- **Evaluation Metrics (Synthetic Demonstration Dataset):**
+  - **$R^2$ Score:** `0.9544`
+  - **Mean Absolute Error (MAE):** `2.809` hours
+  - **Root Mean Squared Error (RMSE):** `3.745` hours
+- **Features Used:** `tool_nominal_capacity`, `wip_queue_size`, `tool_utilization_pct`, `downstream_queue_size`, `wafer_quantity`, `lot_priority_num`, `remaining_stages`, `nominal_cycle_time_hr`, `chamber_health`, `has_active_disruption`.
+- **Explainability:** Feature importance breakdown with deterministic physics fallback calculation when offline.
+
+---
+
+## 📊 Dataset & Transparency Notice
+
+> **Synthetic Demonstration Dataset Notice:**  
+> Nexora currently uses a reproducible synthetic demonstration dataset designed around the operational structure of the S2 problem statement (generated deterministically with Seed 42). The public website and APIs run a live deployment of the platform, but the underlying operational data is synthetic demonstration data rather than confidential semiconductor fab telemetry.
+
+---
+
+
+## ⚡ Local Setup & Reproduction Instructions
 
 ### 1. Prerequisites
 - Python 3.11+
 - Node.js 18+ and npm 9+
 
-### 2. Backend & Data Setup
+### 2. Backend & Data Initialization
 ```bash
-# Generate synthetic dataset (Seed: 42)
-python3 scripts/generate_data.py
+# Clone repository
+git clone https://github.com/neel92654/bob-ai-hackathon-Stack_Trace.git
+cd bob-ai-hackathon-Stack_Trace
 
-# Initialize SQLite database
+# Install backend dependencies
+pip install -r src/backend/requirements.txt
+pip install -r mcp-server/requirements.txt
+
+# Generate synthetic dataset (Seed: 42) & initialize database
+python3 scripts/generate_data.py
 python3 scripts/init_db.py
 
 # Train the ML Delivery Prediction model
 python3 src/backend/ml/train_delivery_model.py
 
-# Run full automated test suite (52 tests including MCP)
+# Run full test suite (53 tests)
 pytest tests/ -v
 
 # Start Flask backend API (Port 5001)
 python3 src/backend/app.py
 ```
 
-### 3. Connect IBM Bob to Nexora MCP Server
-IBM Bob automatically connects to Nexora using `.bob/mcp.json`. To run or test the MCP server manually:
+### 3. Frontend Application
 ```bash
-python3 mcp-server/server.py
-```
-
-### 4. Frontend Setup (In a separate terminal)
-```bash
+# In a separate terminal:
 cd src/frontend
 npm install
 npm run dev
 ```
 Open your browser at `http://localhost:5173`.
 
+### 4. Running the MCP Server for IBM Bob
+```bash
+python3 mcp-server/server.py
+```
+IBM Bob will automatically connect using `.bob/mcp.json`.
+
 ---
 
-## 🖥️ Demo & Screenshots
+## 🖼️ Application Screenshots
 
-| Artifact | Link |
+| View | Screenshot |
 |---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
-| 🌐 Live Demo | [See demo/live-demo-url.txt](https://nexora-7cs9.onrender.com/) |
-| 🖼️ Executive Dashboard | ![Dashboard](demo/screenshots/01-dashboard.png) |
-| 🖼️ Bottleneck Intelligence | ![Bottlenecks](demo/screenshots/02-bottleneck-analysis.png) |
-| 🖼️ Supply Chain SPoF & Geopolitical | ![Supply Chain](demo/screenshots/03-supplier-risk.png) |
-| 🖼️ What-If Disruption Simulator | ![Simulator](demo/screenshots/04-what-if-simulation.png) |
-| 🖼️ Grounded Decision Assistant | ![Assistant](demo/screenshots/05-decision-assistant.png) |
+| **Executive Dashboard** | ![Dashboard](demo/screenshots/01-dashboard.png) |
+| **Fab Bottleneck Intelligence** | ![Bottlenecks](demo/screenshots/02-bottleneck-analysis.png) |
+| **Supply Chain & SPoF Advisor** | ![Supply Chain](demo/screenshots/03-supplier-risk.png) |
+| **What-If Disruption Simulator** | ![Simulator](demo/screenshots/04-what-if-simulation.png) |
+| **Operational Decision Assistant** | ![Assistant](demo/screenshots/05-decision-assistant.png) |
+| **IBM Bob MCP Agent Integration** | ![Bob MCP Overview](demo/screenshots/06-bob-mcp-integration.png) |
+| **IBM Bob Bottleneck & SPoF Analysis** | ![Bob Bottleneck Query](demo/screenshots/07-bob-mcp-bottleneck-query.png) |
+| **IBM Bob What-If Disruption Simulation** | ![Bob Simulation Actions](demo/screenshots/08-bob-mcp-simulation-actions.png) |
 
 ---
 
-## ⚠️ Known Limitations & Synthetic Data Disclaimer
+## ⚠️ Known Limitations
 
-> **Synthetic Demonstration Dataset Disclaimer:**  
-> The demonstration dataset used by Nexora is synthetic and is intended for hackathon demonstration purposes (generated with fixed seed 42). It does not represent confidential or proprietary semiconductor manufacturing data.
+> Be honest — judges appreciate transparency over overclaiming.
 
-- **Geopolitical Sourcing Factors:** Uses a structured regional risk factor model based on synthetic concentration rather than a live external geopolitical news API.
-- **Fab Equipment Telemetry:** Chamber health and queue values are ingested from synthetic discrete-event log tables rather than direct SECS/GEM fab protocols.
+- **Synthetic Demonstration Dataset:** Nexora utilizes a reproducible synthetic semiconductor manufacturing dataset (Seed 42) rather than proprietary real-world fab telemetry or live factory sensor data.
+- **Demonstration Scope & Persistence:** The demonstration is hosted on Render and utilizes SQLite; it is architected for hackathon evaluation and lacks enterprise-grade distributed storage and RBAC authentication.
+- **External Integrations & MCP Architecture:** Live MES/ERP and live supplier feeds are not connected; IBM Bob interacts natively through the 8 Model Context Protocol (MCP) tools rather than an embedded UI widget.
 
 ---
 
 ## 🏅 What We're Most Proud Of
 
-1. **Real IBM Bob Integration via MCP:** 8 native MCP tools allowing IBM Bob to directly query live fab telemetry, run What-If simulations, and synthesize explainable mitigations without duplicating backend code.
-2. **Zero Black-Box Obscurity:** Every single risk score and ML prediction is 100% explainable, showing exact mathematical weights, capacity ratios, lead-time factors, and physics-based drivers.
-3. **Interactive What-If Simulation Engine:** Fab operators can dynamically test multi-day supplier outages or equipment failures and instantly receive Before vs. After metric diffs, financial SLA exposure, and actionable mitigation protocols.
-4. **Rigorous Test Coverage:** 52 passing unit, integration, and MCP tests verifying all calculations, risk classifications, ML models, simulations, and tool discovery.
+Nexora is strongest as an end-to-end, explainable operational intelligence platform rather than a generic chatbot:
+
+- **Grounded IBM Bob MCP Integration:** 8 native Model Context Protocol (MCP) tools connecting IBM Bob directly to live fab bottleneck analytics, supplier risk scoring, and What-If simulation engines without fake mocks.
+- **Scenario-Specific What-If Disruption Simulator:** Multi-scenario stress-testing across 4 disruption archetypes with dynamically generated, condition-specific mitigation recommendations and SLA financial impact modeling.
+- **Complete, Tested & Deployed Platform:** A fully functional, live-deployed platform on Render (frontend + backend) backed by 53/53 passing automated tests and clean production builds.
+
+

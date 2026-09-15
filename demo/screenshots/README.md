@@ -33,3 +33,21 @@ This directory contains high-resolution demonstration screenshots of the running
 ### `05-decision-assistant.png` — Grounded Operational Decision Assistant
 ![Decision Assistant](05-decision-assistant.png)
 - **Description:** Conversational decision support console responding to complex operational queries (*"Why is CVD-03 critical?"*) with direct answers, supporting operational facts, physical reasoning, and recommended line dispatch actions.
+
+---
+
+### `06-bob-mcp-integration.png` — IBM Bob MCP Agent Integration Overview
+![IBM Bob MCP Overview](06-bob-mcp-integration.png)
+- **Description:** IBM Bob connecting to Nexora via Model Context Protocol (MCP), discovering the 8 registered fab operational tools, and ingesting live telemetry across sequential fab stages.
+
+---
+
+### `07-bob-mcp-bottleneck-query.png` — IBM Bob Bottleneck & SPoF Analysis Tool Execution
+![IBM Bob Bottleneck Query](07-bob-mcp-bottleneck-query.png)
+- **Description:** IBM Bob executing `get_fab_bottlenecks` and `get_supplier_risk` tools to diagnose tool overloads on `CVD-03` and Single-Point-of-Failure risks on `SUP-002`.
+
+---
+
+### `08-bob-mcp-simulation-actions.png` — IBM Bob What-If Disruption Simulation & Mitigation
+![IBM Bob Simulation Actions](08-bob-mcp-simulation-actions.png)
+- **Description:** IBM Bob invoking `run_disruption_simulation` to stress-test a 14-day supplier outage and synthesizing prioritized, condition-driven mitigation action plans.
