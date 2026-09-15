@@ -169,7 +169,7 @@ Nexora connects to **IBM Bob** through the **Model Context Protocol (MCP)** stan
 │   ├── setup-guide.md         # Step-by-step reproduction instructions
 │   └── template-guide.md      # Template guide
 ├── demo/                      # Demonstration artifacts
-│   ├── screenshots/           # 5 application screenshots
+│   ├── screenshots/           # Application & IBM Bob MCP integration screenshots
 │   ├── demo-video-link.txt    # Video walkthrough link
 │   └── live-demo-url.txt      # Hosted live demo URL
 ├── presentation/              # Slide deck documentation
@@ -243,3 +243,6 @@ IBM Bob will automatically connect using `.bob/mcp.json`.
 | **Supply Chain & SPoF Advisor** | ![Supply Chain](demo/screenshots/03-supplier-risk.png) |
 | **What-If Disruption Simulator** | ![Simulator](demo/screenshots/04-what-if-simulation.png) |
 | **Operational Decision Assistant** | ![Assistant](demo/screenshots/05-decision-assistant.png) |
+| **IBM Bob MCP Agent Integration** | ![Bob MCP Overview](demo/screenshots/06-bob-mcp-integration.png) |
+| **IBM Bob Bottleneck & SPoF Analysis** | ![Bob Bottleneck Query](demo/screenshots/07-bob-mcp-bottleneck-query.png) |
+| **IBM Bob What-If Disruption Simulation** | ![Bob Simulation Actions](demo/screenshots/08-bob-mcp-simulation-actions.png) |
