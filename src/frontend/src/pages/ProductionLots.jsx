@@ -33,7 +33,10 @@ export function ProductionLots() {
       if (selectedPriority !== 'ALL') filters.priority = selectedPriority;
       if (selectedProcess !== 'ALL') filters.process = selectedProcess;
       const res = await fetchProductionLots(filters);
-      setLotsData(res || { summary: {}, lots: [] });
+      setLotsData({
+        summary: res?.summary || {},
+        lots: res?.data || res?.lots || []
+      });
     } catch (err) {
       console.error("Failed to load lots:", err);
     } finally {

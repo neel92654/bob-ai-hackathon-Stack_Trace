@@ -3,7 +3,10 @@
  * Communicates with Flask REST backend endpoints with robust error handling.
  */
 
-const API_BASE = '/api';
+const API_BASE = (typeof window !== 'undefined' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'))
+  ? 'http://127.0.0.1:5001/api'
+  : '/api';
+
 
 export async function fetchHealth() {
   const res = await fetch(`${API_BASE}/health`);

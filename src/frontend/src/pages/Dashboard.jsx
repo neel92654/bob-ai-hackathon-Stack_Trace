@@ -76,45 +76,45 @@ export function Dashboard({ setActiveTab, onSimulateSupplier, onSimulateTool }) 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
         <MetricCard
           title="Overall Operational Risk"
-          value={`${kpi_metrics?.overall_risk_score || 78}/100`}
+          value={`${kpi_metrics?.overall_operational_risk_score || kpi_metrics?.overall_risk_score || 78}/100`}
           subtitle="Aggregated queue & supply exposure"
           icon={Activity}
           accentColor="critical"
-          badgeText="HIGH RISK"
-          badgeType="critical"
+          badgeText={kpi_metrics?.overall_operational_risk_level || "HIGH RISK"}
+          badgeType={kpi_metrics?.overall_operational_risk_level === 'CRITICAL' ? 'critical' : 'high'}
           trend="+4.2 pts"
           trendType="up-bad"
         />
 
         <MetricCard
           title="Critical Bottlenecks"
-          value={kpi_metrics?.critical_bottlenecks_count || 4}
+          value={kpi_metrics?.critical_bottlenecks_count || 3}
           subtitle="Tools operating >100% capacity"
           icon={Factory}
           accentColor="high"
-          badgeText={`${distributions?.bottlenecks?.CRITICAL || 2} Critical`}
+          badgeText={`${distributions?.bottlenecks?.CRITICAL || kpi_metrics?.critical_bottlenecks_count || 3} Critical`}
           badgeType="high"
           onClick={() => setActiveTab('bottlenecks')}
         />
 
         <MetricCard
           title="High-Risk Suppliers"
-          value={kpi_metrics?.high_risk_suppliers_count || 3}
+          value={kpi_metrics?.high_risk_suppliers_count || 9}
           subtitle="Single-source dependencies detected"
           icon={Globe2}
           accentColor="purple"
-          badgeText="3 SPoF"
+          badgeText={`${kpi_metrics?.spof_suppliers_count || 4} SPoF`}
           badgeType="purple"
           onClick={() => setActiveTab('supply')}
         />
 
         <MetricCard
           title="At-Risk Production Lots"
-          value={kpi_metrics?.delayed_lots_count || 42}
-          subtitle={`Avg projected delay: +${kpi_metrics?.average_predicted_delay_hours || 18.4}h`}
+          value={kpi_metrics?.affected_production_lots || 200}
+          subtitle={`Avg projected delay: +${kpi_metrics?.average_predicted_delay_hours || 20.2}h`}
           icon={Boxes}
           accentColor="cyan"
-          badgeText="200 Active"
+          badgeText={`${kpi_metrics?.high_priority_affected_lots || 113} High Priority`}
           badgeType="info"
           onClick={() => setActiveTab('lots')}
         />
