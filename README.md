@@ -12,16 +12,18 @@
 |---|---|
 | **Project** | **Nexora — Operational Risk & Supply Intelligence Platform** |
 | **Team Name** | **Stack_Trace** |
-| **Track** | AI |
+| **Track** | Semiconductor |
 | **Repository** | [https://github.com/neel92654/bob-ai-hackathon-Stack_Trace](https://github.com/neel92654/bob-ai-hackathon-Stack_Trace) |
-| **Team Lead** | Neel Patel — `neelpatel.dev@outlook.com` |
-| **Members** | Neel Patel (Lead Full-Stack / Data / ML Engineer) |
+| **Team Lead** | Neel Patel — `neel92654@gmail.com` |
+| **Members** | Mayank Padmani, Meet Ramani, Kremil Dobariya |
 
 ---
 
 ## 🎯 Problem Statement
 
-Semiconductor fabrication facilities operate capital-intensive, highly interdependent multi-stage manufacturing lines where equipment queue back-pressure and raw material disruptions cause catastrophic delivery delays and millions of dollars in SLA exposure. Operations and supply chain teams currently rely on disconnected spreadsheets and reactive post-mortems, lacking explainable bottleneck diagnostics, single-point-of-failure supplier visibility, and simulation tools to test operational mitigation strategies before committing capital.
+Chip lead times are 26–52 weeks. Bottlenecks at specific process steps (lithography, etch, CVD) cause cascading delivery delays — the 2021 chip shortage halted auto
+factories for months. Simultaneously, single-source suppliers for critical materials (gallium, neon, photoresists) create catastrophic risk: China controls 80%+ of gallium
+and germanium, both now under export controls.
 
 ---
 
