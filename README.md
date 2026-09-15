@@ -25,6 +25,7 @@
 |---|---|---|
 | 🌐 **Live Demo Platform** | **[https://nexora-7cs9.onrender.com](https://nexora-7cs9.onrender.com)** | Hosted full-stack interactive demonstration on Render |
 | 📹 **Demo Video Walkthrough** | **[Google Drive Video Link](https://drive.google.com/file/d/14rTMIU_3UPpeAfhR0KWGfQKqcFggPFWK/view?usp=drive_link)** | 3–5 min comprehensive walkthrough of features & IBM Bob MCP integration |
+> The application is deployed on Render for hackathon demonstration and evaluation.
 
 ---
 
