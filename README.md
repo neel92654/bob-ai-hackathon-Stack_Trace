@@ -12,7 +12,7 @@
 |---|---|
 | **Project Title** | **Nexora — Operational Risk & Supply Intelligence Platform** |
 | **Team Name** | **Stack_Trace** |
-| **Track** | **AI** |
+| **Track** | **Semiconductor** |
 | **Problem Statement** | **S2 — Fab Bottleneck & Supply Chain Risk Advisor** |
 | **Repository** | [https://github.com/neel92654/bob-ai-hackathon-Stack_Trace](https://github.com/neel92654/bob-ai-hackathon-Stack_Trace) |
 | **Team Lead** | Neel Patel — `25dce087@charusat.edu.in` |
